@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ player }}{% endblock %}
+{% block content %}
+    <div class="card" style="width: 18rem; margin: auto">
+        <img src="{{ player.photo.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ player }}</h5>
+            <p class="card-text">{{ player.title }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ player.birth_date }}</li>
+        </ul>
+        <div class="card-body">
+            <a href="{% url 'players:players_list' %}" class="card-link">Назад</a>
+        </div>
+    </div>
+{% endblock %}

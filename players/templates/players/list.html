@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Players{% endblock %}
+{% block content %}
+<div class="row">
+        <div class="col-md-6 mx-auto">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td><strong>Name</strong></td>
+                        <td><strong>Last Name</strong></td>
+                        <td><strong>Info</strong></td>
+                </tr>
+
+                {% for pl in players %}
+                <tr>
+                    <td>{{ pl.first_name }}</td>
+                    <td>{{ pl.last_name }}</td>
+                    <td><a href="{% url 'players:detail' pk=pl.pk %}">Подробнее</a></td>
+                {% endfor%}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+{% endblock %}
