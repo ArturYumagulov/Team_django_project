@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .models import Player, Comments
 from .forms import CommentPlayerForms
 from django.views.generic import ListView, DetailView, View
@@ -35,7 +36,11 @@ class Search(ListView):
 
     def get_queryset(self):
         u = Player.objects.filter(last_name__icontains=self.request.GET.get("q"))
+        if len(u) == 0:
+            u = Player.objects.filter(first_name__icontains=self.request.GET.get("q"))
+            if len(u) == 0:
+                return u.all()
+            else:
+                return u.all()
         return u.all()
-
-
 
