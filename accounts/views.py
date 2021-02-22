@@ -30,7 +30,3 @@ class LoginView(View):
     def get(self, request, *args, **kwargs):
         form = LoginForm()
         return render(request, 'accounts/login.html', {'form': form})
-
-
-
-
